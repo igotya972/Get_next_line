@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dferjul <dferjul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 03:25:15 by dferjul           #+#    #+#             */
-/*   Updated: 2023/03/01 20:56:45 by dferjul          ###   ########.fr       */
+/*   Updated: 2023/03/04 15:46:53 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 #ifndef GET_NEXT_LINE_H
 #define GET_NEXT_LINE_H
-#ifndef	BUFF_SIZE
-# define BUFF_SIZE 1
+#ifndef	BUFFER_SIZE
+# define BUFFER_SIZE 1
 #endif
 
 char	*get_next_line(int fd);

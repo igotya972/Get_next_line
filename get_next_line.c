@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dferjul <dferjul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 02:39:19 by dferjul           #+#    #+#             */
-/*   Updated: 2023/03/01 21:09:06 by dferjul          ###   ########.fr       */
+/*   Updated: 2023/03/04 16:17:43 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 char	*get_next_line(int fd)
 {
-	ssize_t		ret;
-	static char	buf[BUFF_SIZE + 1];
+	int			ret;
+	static char	buf[BUFFER_SIZE + 1];
 	char		*tmp;
 	char		*line;
 
-	line = malloc(1);
+	line = malloc(sizeof(char *));
 	line[0] = '\0';
-	ret = read(fd, buf, BUFF_SIZE);
-	while (ret == read(fd, buf, BUFF_SIZE))
+	ret = read(fd, buf, BUFFER_SIZE);
+	while (ret == read(fd, buf, BUFFER_SIZE))
 	{
 		buf[ret] = '\0';
 		tmp = ft_strchr(buf, '\n');

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dferjul <dferjul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 03:52:59 by dferjul           #+#    #+#             */
-/*   Updated: 2023/03/01 20:21:41 by dferjul          ###   ########.fr       */
+/*   Updated: 2023/03/04 16:19:36 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,23 @@ char	*ft_strcat(char *dst, const char *src)
 	dst[i] = '\0';
 	return (dst);
 }
-char *ft_strchr(const char *s, int c)
+
+char	*ft_strchr(const char *s, int c)
 {
-    while (*s != '\0')
-    {
-        if (*s == c)
-        {
-            return ((char *)s);
-        }
-        s++;
-    }
-    if (*s == c)
-    {
-        return ((char *)s);
-    }
-    return (NULL);
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		if ((char)c == s[i])
+			return ((char *)s + i);
+		i++;
+	}
+	if ((char)c == 0)
+		return ((char *)s + i);
+	return (0);
 }
+
 char	*ft_strdup(const char *s1)
 {
 	char	*dup;

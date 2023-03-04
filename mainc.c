@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   mainc.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dferjul <dferjul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 01:50:25 by dferjul           #+#    #+#             */
-/*   Updated: 2023/03/01 20:32:18 by dferjul          ###   ########.fr       */
+/*   Updated: 2023/03/04 15:33:18 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-/*
 int main(void)
 {
     int fd = open("fichier.txt", O_RDONLY);
@@ -29,8 +28,8 @@ int main(void)
     close(fd);
     return 0;
 } 
-*/
 
+/*
 int main(int argc, char **argv)
 {
     int fd;
@@ -58,3 +57,4 @@ int main(int argc, char **argv)
     close(fd);
     return (0);
 }
+*/
