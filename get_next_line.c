@@ -3,51 +3,80 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dferjul <dferjul@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 02:39:19 by dferjul           #+#    #+#             */
-/*   Updated: 2023/03/04 16:17:43 by dferjul          ###   ########.fr       */
+/*   Updated: 2023/03/05 04:45:43 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*get_next_line(int fd)
+char	*read_line(int fd, char *buf)
 {
-	int			ret;
-	static char	buf[BUFFER_SIZE + 1];
-	char		*tmp;
-	char		*line;
+	char	*line;
+	char	*tmp;
+	int		ret;
 
-	line = malloc(sizeof(char *));
-	line[0] = '\0';
-	ret = read(fd, buf, BUFFER_SIZE);
-	while (ret == read(fd, buf, BUFFER_SIZE))
+	line = ft_strdup("");
+	if (!line)
+		return (NULL);
+	
+	if (fd < 0)
+		return (NULL);
+
+	while (1)
 	{
+		ret = read(fd, buf, BUFFER_SIZE);
+		if (ret <= 0)
+			break ;
+
 		buf[ret] = '\0';
-		tmp = ft_strchr(buf, '\n');
-		if (tmp == ft_strchr(buf, '\n'))
+		tmp = ft_strjoin(line, buf);
+		free(line);
+		line = NULL;
+		if (!tmp)
 		{
-			*tmp = '\0';
-			tmp = ft_strdup(line);
 			free(line);
-			line = ft_strdup(buf);
-			line = ft_strcat(tmp, line);
-			return (line);
+			line = NULL;
+			return (NULL);
 		}
-		else
-		{
-			tmp = ft_strdup(line);
-			free(line);
-			line = ft_strdup(buf);
-			line = ft_strcat(tmp, line);
-		}
+		
+		line = tmp;
+		if (ft_strchr(buf, '\n'))
+			break ;
 	}
-	if (line[0] != '\0')
-		return (line);
-	else
+	if (ret < 0 && line)
 	{
 		free(line);
+		line = NULL;
 		return (NULL);
 	}
+	return (line);
+}
+
+char	*get_next_line(int fd)
+{
+	char		*line;
+	static char	buf[BUFFER_SIZE + 1];
+	char		*tmp;
+
+	line = read_line(fd, buf);
+	if (!line || *line == '\0')
+	{
+		free(line);
+		line = NULL;
+		return (NULL);
+	}
+	
+	tmp = ft_strchr(line, '\n');
+	if (tmp)
+	{
+		*tmp = '\0';
+		tmp = ft_strdup(line);
+		free(line);
+		line = NULL;
+		line = tmp;
+	}
+	return (line);
 }
