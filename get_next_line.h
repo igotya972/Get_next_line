@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 03:25:15 by dferjul           #+#    #+#             */
-/*   Updated: 2023/03/10 15:55:08 by dferjul          ###   ########.fr       */
+/*   Updated: 2023/03/10 21:07:11 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ char	*ft_strchr(const char *s, int c);
 size_t	ft_strlen(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
 void	*ft_calloc(size_t count, size_t size);
-void	ft_bzero(void *s, size_t n);
 char	*ft_strcpy(char *dest, char *buf);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 16:03:34 by dferjul           #+#    #+#             */
-/*   Updated: 2023/03/10 16:03:36 by dferjul          ###   ########.fr       */
+/*   Updated: 2023/03/10 21:05:41 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,25 +22,20 @@ size_t	ft_strlen(const char *s)
 	return (len);
 }
 
-void	ft_bzero(void *s, size_t n)
-{
-	char	*str;
-
-	str = (char *)s;
-	while (n--)
-	{
-		str[n] = 0;
-	}
-}
-
 void	*ft_calloc(size_t count, size_t size)
 {
 	char	*c;
+	size_t	i;
 
 	c = malloc (count * size);
 	if (!c)
 		return (0);
-	ft_bzero (c, count * size);
+	i = 0;
+	while (i != size * count)
+	{
+		c[i] = 0;
+		i++;
+	}
 	return (c);
 }
 

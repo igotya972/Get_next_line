@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 15:56:25 by dferjul           #+#    #+#             */
-/*   Updated: 2023/03/10 15:57:39 by dferjul          ###   ########.fr       */
+/*   Updated: 2023/03/10 20:58:59 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,24 +106,24 @@ char	*read_file(int fd, char *result)
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*buf;
+	static char	*buf[OPEN_MAX];
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 	{
-		if (buf)
+		if (buf[fd])
 		{
-			free(buf);
-			buf = 0;
+			free(buf[fd]);
+			buf[fd] = 0;
 		}
 		return (NULL);
 	}
-	buf = read_file(fd, buf);
-	if (!buf)
+	buf[fd] = read_file(fd, buf[fd]);
+	if (!buf[fd])
 	{
-		free(buf);
+		free(buf[fd]);
 		return (NULL);
 	}
-	line = ft_first_line(buf);
-	buf = ft_second_line(buf);
+	line = ft_first_line(buf[fd]);
+	buf[fd] = ft_second_line(buf[fd]);
 	return (line);
 }

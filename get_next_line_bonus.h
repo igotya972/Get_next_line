@@ -6,7 +6,7 @@
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 15:55:40 by dferjul           #+#    #+#             */
-/*   Updated: 2023/03/10 15:59:59 by dferjul          ###   ########.fr       */
+/*   Updated: 2023/03/10 20:57:00 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <stdarg.h>
+# include <limits.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1000000
