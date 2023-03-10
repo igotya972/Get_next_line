@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dferjul <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/12 03:52:59 by dferjul           #+#    #+#             */
-/*   Updated: 2023/03/10 19:51:04 by dferjul          ###   ########.fr       */
+/*   Created: 2023/03/10 16:03:34 by dferjul           #+#    #+#             */
+/*   Updated: 2023/03/10 16:03:36 by dferjul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen(const char *s)
 {
@@ -22,20 +22,25 @@ size_t	ft_strlen(const char *s)
 	return (len);
 }
 
+void	ft_bzero(void *s, size_t n)
+{
+	char	*str;
+
+	str = (char *)s;
+	while (n--)
+	{
+		str[n] = 0;
+	}
+}
+
 void	*ft_calloc(size_t count, size_t size)
 {
 	char	*c;
-	size_t	i;
 
 	c = malloc (count * size);
 	if (!c)
 		return (0);
-	i = 0;
-	while (i != size * count)
-	{
-		c[i] = 0;
-		i++;
-	}
+	ft_bzero (c, count * size);
 	return (c);
 }
 
